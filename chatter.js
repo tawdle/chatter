@@ -3,7 +3,7 @@ var http = require('http'),
 
 var server = new faye.NodeAdapter({mount: '/faye', timeout: 45});
 
-var secret = 'this_is_a_SeCRet';
+var secret = process.env.FAYE_PASSWORD || 'this_is_a_SeCRet';
 
 server.addExtension({
   incoming: function(message, callback) {
